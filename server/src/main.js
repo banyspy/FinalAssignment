@@ -6,6 +6,12 @@ const jwt = require('jsonwebtoken')
 const app = express()
 const port = 8080
 
+let total = 0;
+
+app.post('/increase', (req, res)=>{
+    total++;
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
