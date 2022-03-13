@@ -12,6 +12,10 @@ app.post('/increase', (req, res)=>{
     total++;
 })
 
+app.post('/refresh', (req, res)=>{
+  res.json({data:number})
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
