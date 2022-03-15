@@ -1,5 +1,7 @@
 import './App.css';
 import axios from 'axios';
+import cat_c from 'img/popcat_mouse_close.img'
+import cat_o from 'img/popcat_mouse_open.img'
 
 const increase = async () => {
   let result = await axios.get('http://localhost:3000/increase')
