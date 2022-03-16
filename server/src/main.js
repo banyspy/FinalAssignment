@@ -6,10 +6,10 @@ const jwt = require('jsonwebtoken')
 const app = express()
 const port = 8080
 
-let total = 0;
+let total = 0; //total amount of clicks
 
 app.post('/increase', (req, res)=>{
-    total++;
+    total++; //increase the amount of clicks by one
 })
 
 app.post('/refresh', (req, res)=>{
