@@ -13,7 +13,7 @@ app.post('/increase', (req, res)=>{
 })
 
 app.post('/refresh', (req, res)=>{
-  res.json({data:number})
+  res.json({data:total})
 })
 
 app.listen(port, () => {
