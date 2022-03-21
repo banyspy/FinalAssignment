@@ -7,6 +7,7 @@ import cat_o from 'img/popcat_mouse_open.img'
 
 const increase = async () => {
   let result = await axios.get('http://localhost:3000/increase')
+  //TODO: add code that make cat open mouth
   number++;
 }
 
@@ -28,8 +29,8 @@ function App() {
   return (
     <div className="App">
       <p1>{number}</p1>
-      <button onClick={increase}>Click Me</button>
-      <button onClick={refresh}>Click Me</button>
+      <button onClick={increase}>increase</button>
+      <button onClick={refresh}>refresh</button>
     </div>
   );
 }
