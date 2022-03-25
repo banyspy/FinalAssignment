@@ -14,8 +14,8 @@ app.post('/increase', (req, res)=>{
 
 app.post('/refresh', (req, res)=>{
   res.json({data:total})
-})
+}) //The json() method of the Response interface takes a Response stream and reads it to completion. It returns a promise which resolves with the result of parsing the body text as JSON.
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
+}) //default logging 
