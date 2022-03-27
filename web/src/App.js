@@ -1,7 +1,8 @@
 import './App.css';
 import axios from 'axios';
-import cat_c from 'img/popcat_mouse_close.img'
-import cat_o from 'img/popcat_mouse_open.img'
+import cat_c from 'img/popcat_mouse_close.img';
+import cat_o from 'img/popcat_mouse_open.img';
+import BackgroundCat from './BackgroundCat.js';
 
 
 
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <BackgroundCat/>
       <p1>{number}</p1>
       <button onClick={increase}>increase</button>
       <button onClick={refresh}>refresh</button>
