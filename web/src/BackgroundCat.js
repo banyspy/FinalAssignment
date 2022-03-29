@@ -29,3 +29,5 @@ class BackgroundCat extends React.Component {
     );
   }
 }
+
+export default BackgroundCat;
