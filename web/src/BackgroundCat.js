@@ -13,7 +13,7 @@ class BackgroundCat extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.state = {isOff: false};
+    this.state = {isOff: true};
   }
 
   handleClick() {
@@ -25,7 +25,7 @@ class BackgroundCat extends React.Component {
   render() {
     const imageName = this.getImageName();
     return (
-      <image onClick={this.handleClick} src={imagePath[imageName]}></image>
+      <img is="cat" id="cat" onClick={this.handleClick} src={imagePath[imageName]}></img>
     );
   }
 }
