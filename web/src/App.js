@@ -41,16 +41,18 @@ class App extends Component{
     this.callRefresh();
   }
 
-  return (){
-      <div className="App">
-        <BackgroundCat/>
-        <h is="h">{number}</h>
-        <br/>
-        <button onClick={this.callIncrease}>increase</button>
-        <br/>
-        <button onClick={this.callRefresh}>refresh</button>
-      </div>
-  }
+  render() {
+    return (
+        <div className="App">
+          <BackgroundCat/>
+          <h is="h">{number}</h>
+          <br/>
+          <button onClick={this.callIncrease}>increase</button>
+          <br/>
+          <button onClick={this.callRefresh}>refresh</button>
+        </div>
+    );
+  };
 }
 
 export default App;
