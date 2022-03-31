@@ -1,5 +1,5 @@
-import cat_c from 'img/popcat_mouse_close.img'
-import cat_o from 'img/popcat_mouse_open.img'
+import cat_c from './img/popcat_mouse_close.png'
+import cat_o from './img/popcat_mouse_open.png'
 import './App.css';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
