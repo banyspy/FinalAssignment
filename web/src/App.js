@@ -1,11 +1,10 @@
-
 import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios';
 import cat_c from './img/popcat_mouse_close.png'
 import cat_o from './img/popcat_mouse_open.png'
-// import BackgroundCat from './BackgroundCat.js';
-// import BackgroundCat2 from './BackgroundCat2.js';
+import Top from './Top.js';
+import BackgroundCat from './BackgroundCat.js';
 import { Pressable, StyleSheet, Text, View, TouchableOpacity, Image  } from 'react-native';
 
 /*
@@ -25,14 +24,10 @@ const imagePath = {
   open: cat_o
 };
 
-var number = 0;
 class App extends Component{
   constructor(props) {
     super(props);
-    this.state = {
-      apiResponse: "" , 
-      isOff: true
-    };
+    this.state = { numberRes: 0 ,isOff: true};
   }
 
   getImageName(){ 
@@ -49,31 +44,20 @@ class App extends Component{
 
   callIncrease() {
     fetch("http://localhost:9000/increase")
+    .then(res => res.json())
   }
 
   callRefresh() {
     fetch("http://localhost:9000/refresh")
         .then(res => res.json())
-        .then(res => this.setState({ apiResponse: res }));
+        .then((json) => {this.setState({ numberRes: json.data })});
   }
 
-  componentWillMount() {
-    this.callIncrease();
-    this.callRefresh();
-  }
-
-  render() {
+  render(){
     const imageName = this.getImageName();
-    // var icon_cat = this.state.isOff ?
-    return (
-        <div className="App">
-          {/* <Image source={icon_cat} style={{width: 55, height: 55}} />
-          <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={this.callIncrease} onPressIn={this.handlePressIn} onPressOut={this.handlePressOut}>
-              <Text>Pop</Text>
-            </TouchableOpacity>
-          </View> */}
-          <Pressable
+      return(<div className="App">
+        <Top/>
+        <Pressable
             onPress={this.callIncrease}
             style={({ pressed }) => [
               {
@@ -89,15 +73,14 @@ class App extends Component{
               </Text>
             )}
           </Pressable>
-          {/* <Pressable onClick={this.callIncrease} onPressIn={this.handlePressIn} onPressOut={this.handlePressOut}>
-            <Image is="cat" id="cat" source={icon_cat} style={{width: 400, height: 400}} alt="cat" />
-          </Pressable> */}
-          <h is="h">{number}</h>
-          <br/>
-          <button onClick={this.callRefresh}>refresh</button>
-        </div>
-    );
-  };
+        <br/>
+        <br/>
+        <h is="h">Current for this user: {this.state.numberRes}</h>
+        <br/>
+        <br/>
+        <button onClick={this.callRefresh}>refresh</button>
+      </div>)
+    }
 }
 const styles = StyleSheet.create({
   container: {
@@ -119,23 +102,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9'
   }
 });
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   button: {
-//     backgroundColor: '#859a9b',
-//     borderRadius: 20, //the radius on the corner
-//     padding: 100,
-//     marginBottom: 20, //padding below the image
-//     shadowColor: '#303838',
-//     shadowOffset: { width: 0, height: 5 },
-//     shadowRadius: 10,
-//     shadowOpacity: 0.35,
-//   },
-// });
-
 export default App;

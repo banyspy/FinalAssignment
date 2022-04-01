@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+@media screen and (min-width:1186px){
+    .body{
+        margin:0;
+        padding:0;
+        overflow: hidden;
+    }
+
+    .Top{
+        z-index:5;
+        background-color: rgba(0, 0, 0,1);
+        width: 100%; 
+        height: auto;
+        display:flex;
+        position:sticky;
+        /*top:0;*/
+    }
+
+    .Top .leftSide{
+        flex:50%;
+        display:flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    #name{
+        color:blanchedalmond;
+        
+        font-size: 3vw;
+        margin-left: 3vw
+    }
+
+    .Top .rightSide{
+        flex:50%;
+        display:flex;
+        align-items: center;
+        justify-content: right;
+    }
+
+    #loginbutton{
+        color:blanchedalmond;
+        font-size: 3vw;
+        margin-right: 3vw;
+        transition: 0.3s;
+    }
+
+    #loginbutton:hover{
+        background-color: white;
+        color:black;
+        display:inline-block;
+    }
+}
