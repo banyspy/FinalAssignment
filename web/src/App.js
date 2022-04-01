@@ -53,12 +53,17 @@ class App extends Component{
         .then((json) => {this.setState({ numberRes: json.data })});
   }
 
+  handleClick(){
+    this.setState({numberRes: this.state.numberRes + 1});
+    this.callIncrease();
+  }
+
   render(){
     const imageName = this.getImageName();
       return(<div className="App">
         <Top/>
         <Pressable
-            onPress={this.callIncrease}
+            onPress={() => {this.setState({numberRes: this.state.numberRes + 1});this.callIncrease()} }
             style={({ pressed }) => [
               {
                 backgroundColor: pressed
