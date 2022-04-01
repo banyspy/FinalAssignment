@@ -27,7 +27,8 @@ const imagePath = {
 class App extends Component{
   constructor(props) {
     super(props);
-    this.state = { numberRes: 0 ,isOff: true};
+    this.state = { input:[],numberRes: 0 ,isOff: true};
+    this.callRefresh = this.callRefresh.bind(this);
   }
 
   getImageName(){ 
@@ -47,10 +48,15 @@ class App extends Component{
     .then(res => res.json())
   }
 
-  callRefresh() {
+  callRefresh = () => {
     fetch("http://localhost:9000/refresh")
-        .then(res => res.json())
-        .then((json) => {this.setState({ numberRes: json.data })});
+        .then((res) => {res.json()
+        .then((json) => {this.setState({ numberRes: json.data })})});
+      console.log(this.state.numberRes)
+  }
+
+  componentDidMount() {
+    this.callRefresh();
   }
 
   handleClick(){
@@ -63,7 +69,7 @@ class App extends Component{
       return(<div className="App">
         <Top/>
         <Pressable
-            onPress={() => {this.setState({numberRes: this.state.numberRes + 1});this.callIncrease()} }
+            onPress={() => {this.callIncrease();this.setState({numberRes: this.state.numberRes + 1})} }
             style={({ pressed }) => [
               {
                 backgroundColor: pressed
