@@ -1,28 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios';
-import cat_c from './img/popcat_mouse_close.png'
-import cat_o from './img/popcat_mouse_open.png'
 import Top from './Top.js';
-import BackgroundCat from './BackgroundCat.js';
 import { Pressable, StyleSheet, Text, View, TouchableOpacity, Image  } from 'react-native';
-
-/*
-const increase = async () => {
-  await axios.get('http://localhost:9000/increase')
-  //TODO: add code that make cat open mouth
-  number++;
-}
-
-const refresh = async () => {
-  let result = await axios.get('http://localhost:9000/refresh')
-  number = result.data;
-}
-*/
-const imagePath = {
-  close: cat_c,
-  open: cat_o
-};
 
 class App extends Component{
   constructor(props) {
@@ -33,14 +13,6 @@ class App extends Component{
 
   getImageName(){ 
     return(this.state.isOff ? 'close' : 'open' )
-  }
-
-  handlePressIn() {
-    this.setState({isOff:false});
-  }
-
-  handlePressOut() {
-    this.setState({isOff:true});
   }
 
   callIncrease() {
