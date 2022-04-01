@@ -19,38 +19,34 @@ const refresh = async () => {
 }
 */
 
-var number = 0;
 class App extends Component{
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = { numberRes: 0 };
   }
 
   callIncrease() {
     fetch("http://localhost:9000/increase")
+    .then(res => res.json())
   }
 
   callRefresh() {
     fetch("http://localhost:9000/refresh")
         .then(res => res.json())
-        .then(res => this.setState({ apiResponse: res }));
+        .then((json) => {this.setState({ numberRes: json.data })});
   }
 
-  componentWillMount() {
-    this.callIncrease();
-    this.callRefresh();
-  }
-
-  return (){
-      <div className="App">
+  render(){
+    const {numberRes} = this.state;
+      return(<div className="App">
         <BackgroundCat/>
-        <h is="h">{number}</h>
+        <h is="h">{this.state.numberRes}</h>
         <br/>
         <button onClick={this.callIncrease}>increase</button>
         <br/>
         <button onClick={this.callRefresh}>refresh</button>
-      </div>
-  }
+      </div>);
+    }
 }
 
 export default App;

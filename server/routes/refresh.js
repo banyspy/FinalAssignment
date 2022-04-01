@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const valueName = '../value.json';
+const valueName = './value.json';
 const value = require(valueName);
 
 router.get('/', function(req, res, next) {
