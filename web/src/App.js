@@ -27,7 +27,7 @@ const imagePath = {
 class App extends Component{
   constructor(props) {
     super(props);
-    this.state = { input:[],numberRes: 0 ,isOff: true};
+    this.state = { input:[],numberUser:0,numberTotal: 0 ,isOff: true};
     this.callRefresh = this.callRefresh.bind(this);
   }
 
@@ -45,14 +45,13 @@ class App extends Component{
 
   callIncrease() {
     fetch("http://localhost:9000/increase")
-    .then(res => res.json())
   }
 
   callRefresh = () => {
     fetch("http://localhost:9000/refresh")
         .then((res) => {res.json()
-        .then((json) => {this.setState({ numberRes: json.data })})});
-      console.log(this.state.numberRes)
+        .then((json) => {this.setState({ numberTotal: json.data })})});
+      console.log(this.state.numberTotal)
   }
 
   componentDidMount() {
@@ -69,7 +68,7 @@ class App extends Component{
       return(<div className="App">
         <Top/>
         <Pressable
-            onPress={() => {this.callIncrease();this.setState({numberRes: this.state.numberRes + 1})} }
+            onPress={() => {this.callIncrease();this.callRefresh();this.setState({numberUser: this.state.numberUser + 1})} }
             style={({ pressed }) => [
               {
                 backgroundColor: pressed
@@ -86,7 +85,10 @@ class App extends Component{
           </Pressable>
         <br/>
         <br/>
-        <h is="h">Current for this user: {this.state.numberRes}</h>
+        <h is="h">Current for this user: {this.state.numberUser}</h>
+        <br/>
+        <br/>
+        <h is="h">Total amount: {this.state.numberTotal}</h>
         <br/>
         <br/>
         <button onClick={this.callRefresh}>refresh</button>
