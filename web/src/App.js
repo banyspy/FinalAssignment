@@ -36,6 +36,7 @@ class App extends Component{
         .then((json) => {this.setState({ numberRes: json.data })});
   }
 
+<<<<<<< HEAD
   render(){
     const {numberRes} = this.state;
       return(<div className="App">
@@ -47,6 +48,25 @@ class App extends Component{
         <button onClick={this.callRefresh}>refresh</button>
       </div>);
     }
+=======
+  componentWillMount() {
+    this.callIncrease();
+    this.callRefresh();
+  }
+
+  render() {
+    return (
+        <div className="App">
+          <BackgroundCat/>
+          <h is="h">{number}</h>
+          <br/>
+          <button onClick={this.callIncrease}>increase</button>
+          <br/>
+          <button onClick={this.callRefresh}>refresh</button>
+        </div>
+    );
+  };
+>>>>>>> cea51a5b08e92264dcd2a7bd91aadc97e3e3fe6f
 }
 
 export default App;
