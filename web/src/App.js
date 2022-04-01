@@ -3,8 +3,8 @@ import './App.css';
 import axios from 'axios';
 import cat_c from './img/popcat_mouse_close.png'
 import cat_o from './img/popcat_mouse_open.png'
+import Top from './Top.js';
 import BackgroundCat from './BackgroundCat.js';
-
 
 /*
 const increase = async () => {
@@ -36,37 +36,18 @@ class App extends Component{
         .then((json) => {this.setState({ numberRes: json.data })});
   }
 
-<<<<<<< HEAD
   render(){
-    const {numberRes} = this.state;
       return(<div className="App">
+        <Top/>
         <BackgroundCat/>
-        <h is="h">{this.state.numberRes}</h>
         <br/>
-        <button onClick={this.callIncrease}>increase</button>
+        <br/>
+        <h is="h">Current for this user: {this.state.numberRes}</h>
+        <br/>
         <br/>
         <button onClick={this.callRefresh}>refresh</button>
-      </div>);
+      </div>)
     }
-=======
-  componentWillMount() {
-    this.callIncrease();
-    this.callRefresh();
-  }
-
-  render() {
-    return (
-        <div className="App">
-          <BackgroundCat/>
-          <h is="h">{number}</h>
-          <br/>
-          <button onClick={this.callIncrease}>increase</button>
-          <br/>
-          <button onClick={this.callRefresh}>refresh</button>
-        </div>
-    );
-  };
->>>>>>> cea51a5b08e92264dcd2a7bd91aadc97e3e3fe6f
 }
 
 export default App;

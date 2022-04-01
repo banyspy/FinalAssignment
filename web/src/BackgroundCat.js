@@ -16,8 +16,13 @@ class BackgroundCat extends React.Component {
     this.state = {isOff: true};
   }
 
+  callIncrease() {
+    fetch("http://localhost:9000/increase")
+  }
+
   handleClick() {
-    this.setState({isOff:!this.state.isOff});
+    
+    
   }
 
   getImageName = () => this.state.isOff ? 'close' : 'open'
@@ -25,7 +30,7 @@ class BackgroundCat extends React.Component {
   render() {
     const imageName = this.getImageName();
     return (
-      <img is="cat" id="cat" onClick={this.handleClick} src={imagePath[imageName]}></img>
+      <img is="cat" id="cat" onClick={()=>{this.setState({isOff:!this.state.isOff});this.callIncrease();}} src={imagePath[imageName]}></img>
     );
   }
 }
