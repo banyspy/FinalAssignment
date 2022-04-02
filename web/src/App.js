@@ -26,11 +26,6 @@ class App extends Component{
     this.callRefresh();
   }
 
-  handleClick(){
-    this.setState({numberRes: this.state.numberRes + 1});
-    this.callIncrease();
-  }
-
   render(){
     return(<div className="App">
       <View>
@@ -46,7 +41,7 @@ class App extends Component{
             </Pressable>
           <br/>
           <br/>
-          <h is="h">Current for this user: {this.state.numberUser}</h>
+          <h is="h">Current for this usage: {this.state.numberUser}</h>
           <br/>
           <br/>
           <h is="h">Total amount: {this.state.numberTotal}</h>

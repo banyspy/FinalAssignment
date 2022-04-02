@@ -17,7 +17,7 @@ function Top(){
             <div className="leftSide">
                 {
                     user ?
-                    <span id="name">Hello, {user.displayname}</span>:
+                    <span id="name">Hello, {user.displayName}</span>:
                     <span id="name">Welcome to pop cat</span> 
                 }
             </div>
