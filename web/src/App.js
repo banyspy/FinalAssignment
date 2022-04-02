@@ -7,9 +7,17 @@ import { Pressable, StyleSheet, Text, View, TouchableOpacity, Image  } from 'rea
 class App extends Component{
   constructor(props) {
     super(props);
-    this.state = { input:[],numberUser:0,numberTotal: 0 ,isOff: true};
+    this.state = { 
+      input:[],
+      numberUser:0,
+      numberTotal: 0,
+      isOff: true};
     this.callRefresh = this.callRefresh.bind(this);
   }
+
+  
+
+
 
   getImageName(){ 
     return(this.state.isOff ? 'close' : 'open' )
@@ -40,6 +48,8 @@ class App extends Component{
       return(<div className="App">
         <Top/>
         <Pressable
+            //onPressIn={new Audio("./sound/sound_open.mp3").play()}
+            //onPressOut={new Audio("./sound/sound_close.mp3").play()}
             onPress={() => {this.callIncrease();this.callRefresh();this.setState({numberUser: this.state.numberUser + 1})} }
             style={({ pressed }) => [
               {
