@@ -1,23 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component,useState,useEffect}from 'react';
 import './App.css';
 import axios from 'axios';
 import Top from './Top.js';
 import { Pressable, StyleSheet, Text, View, TouchableOpacity, Image  } from 'react-native';
-
 class App extends Component{
   constructor(props) {
     super(props);
     this.state = { 
-      input:[],
       numberUser:0,
       numberTotal: 0,
       isOff: true};
     this.callRefresh = this.callRefresh.bind(this);
   }
-
-  
-
-
 
   getImageName(){ 
     return(this.state.isOff ? 'close' : 'open' )
@@ -74,6 +68,8 @@ class App extends Component{
         <br/>
         <br/>
         <button onClick={this.callRefresh}>refresh</button>
+        <br/>
+        <br/>
       </div>)
     }
 }

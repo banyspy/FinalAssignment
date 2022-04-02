@@ -24,8 +24,8 @@ function Top(){
             <div className="rightSide">
                 {
                     user ? 
-                    <button onClick={() => auth.signOut()} id="loginbutton">Logout</button> :
-                    <button onClick={signInWithGoogle} id="loginbutton">Login</button> 
+                    <span onClick={() => auth.signOut()} id="loginbutton">Logout</span> :
+                    <span onClick={signInWithGoogle} id="loginbutton">Login</span> 
                 }
             </div>
         </div>
